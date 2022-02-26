@@ -23,18 +23,18 @@ contract SimpleStorage{
         uint256 favouriteNumber;
         string name;
     }
+    mapping(string=>uint256)public nameToFavoriteNumber;
+    People public person=People({favouriteNumber:2,name:"Titus"});
 
-People public person=People({favouriteNumber:2,name:"Titus"});
+    People[]public people;
 
-People[]public people;
-
-function addPerson(string memory _name,uint256 _favouriteNumber)public{
+    function addPerson(string memory _name,uint256 _favouriteNumber)public{
 
 
-people.push(People({favouriteNumber:_favouriteNumber,name:_name}));
-
-//or
-// people.push(People(_favouriteNumber,_name));
+    people.push(People({favouriteNumber:_favouriteNumber,name:_name}));
+    nameToFavoriteNumber[_name]=_favouriteNumber;
+    //or
+    // people.push(People(_favouriteNumber,_name));
 
 }
 
