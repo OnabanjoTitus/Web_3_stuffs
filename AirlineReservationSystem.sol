@@ -48,12 +48,7 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
             } 
             }
  
-        }
-
-    
-    
-    
-    
+        }    
     
     }
       
