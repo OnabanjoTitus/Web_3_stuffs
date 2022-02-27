@@ -14,6 +14,19 @@ contract AirlineReservationSystem{
 
 function addPassenger(string memory _name,uint256 _class)public returns(string memory) {
 
+        for(uint256 i=0; i<10; i++){
+          if(passengers[i].class==0){
+              break;
+
+          }else{
+
+             return string(abi.encodePacked("Flights Has been fully booked")); 
+          } 
+
+
+
+        }
+
         if(_class==1){
         for(uint256 i=0; i<5; i++){
             if(passengers[i].class==0){
@@ -33,7 +46,7 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
                return string(abi.encodePacked("Seat booked",i+1,"for passenger ", _name," economy class"));
             }
             if(i==4){
-                return string(abi.encodePacked("First Class has been fully booked"));
+                return string(abi.encodePacked("Economy Class has been fully booked"));
             } 
             }
  
