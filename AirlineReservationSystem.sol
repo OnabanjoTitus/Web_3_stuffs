@@ -17,12 +17,10 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
         for(uint256 i=0; i<10; i++){
           if(passengers[i].class==0){
               break;
-
-          }else{
-
+          }
+          if(i==9){
              return string(abi.encodePacked("Flights Has been fully booked")); 
           } 
-
 
 
         }
