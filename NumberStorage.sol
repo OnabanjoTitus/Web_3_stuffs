@@ -40,8 +40,4 @@ contract SimpleStorage{
 
 }
 
-
-
-
-
 }
