@@ -17,13 +17,13 @@ contract StorageFactory{
     function sfStore(uint256 _simpleStorageIndex,uint256 _simpleStorageNumber) public{
         //Address of the contract
         //ABI
-        SimpleStorage simpleStorage=SimpleStorage(address(simpleStorageList[_simpleStorageIndex]));
-        simpleStorage.store(_simpleStorageNumber);
+        SimpleStorage(address(simpleStorageList[_simpleStorageIndex])).store(_simpleStorageNumber);
+        
     }
 
     function sfGet(uint256 _simpleStorageIndex)public view returns(uint256){
-      SimpleStorage simpleStorage=SimpleStorage(address(simpleStorageList[_simpleStorageIndex]));
-        return simpleStorage.retrieve();
+    
+        return  SimpleStorage(address(simpleStorageList[_simpleStorageIndex])).retrieve();
     }
 
 }
