@@ -14,6 +14,7 @@ contract AirlineReservationSystem{
 
 function addPassenger(string memory _name,uint256 _class)public returns(string memory) {
 
+        //check if we still have seats in the airplane
         for(uint256 i=0; i<10; i++){
           if(passengers[i].class==0){
               break;
@@ -25,6 +26,7 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
 
         }
 
+        //check if we still have first class seats and assign seat
         if(_class==1){
         for(uint256 i=0; i<5; i++){
             if(passengers[i].class==0){
@@ -37,6 +39,7 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
             }
  
         }
+        //check if we still have economy seats and assign seat
         if(_class==2){
         for(uint256 i=5; i<10; i++){
             if(passengers[i].class==0){
