@@ -10,7 +10,8 @@ contract FundMe{
     mapping(address => uint256) public addressToAmountFunded;
     function fund() public payable{
         //$50
-
+        uint256 minimumUSD =50 * 10 ** 18;
+        require(getConversionRate(msg.value)>=minimumUSD, "You need to spend more ETH!");
         addressToAmountFunded[msg.sender]+=msg.value;
         //what the ETH -> USD conversion rate
      }
