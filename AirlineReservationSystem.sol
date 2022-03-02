@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 contract AirlineReservationSystem{
 
@@ -10,7 +10,7 @@ contract AirlineReservationSystem{
         string name;
         uint256 seatNumber;
     }
-    Passenger[10] public passengers;
+    Passenger[10] passengers;
 
 function addPassenger(string memory _name,uint256 _class)public returns(string memory) {
 
@@ -46,7 +46,7 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
                passengers[i]=Passenger(_class,_name,i+1);
                return string(abi.encodePacked("Seat booked",i+1,"for passenger ", _name," economy class"));
             }
-            if(i==4){
+            if(i==9){
                 return string(abi.encodePacked("Economy Class has been fully booked"));
             } 
             }
@@ -54,7 +54,11 @@ function addPassenger(string memory _name,uint256 _class)public returns(string m
         }    
     
     }
-      
+    
+    function viewPassengerBySeatNumber(uint256 _seatNumber)public view returns(Passenger memory){
+        _seatNumber=_seatNumber-uint256(1);
+        return passengers[_seatNumber];
+    }
 
   
 }
